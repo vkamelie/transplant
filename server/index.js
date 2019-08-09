@@ -11,6 +11,7 @@ dotenv.config();
 
 connectDB();
 const app = express();
+app.use(express.json({ extended: false }));
 
 app.use(
   cookieSession({
@@ -28,6 +29,7 @@ app.get("/", (req, res) => res.send("api running"));
 //Define Routes
 app.use("/api/auth", authRoutes);
 app.use("/api", profileRoutes);
+app.use("/api/posts", require("./routes/api/posts"));
 
 const PORT = process.env.PORT || 5000;
 

@@ -63,7 +63,7 @@
   box-sizing: border-box;
   position: relative;
   margin: 0.2em;
-  padding: 0 15px 0 46px;
+  padding: 0 15px 10px 46px;
   border: none;
   text-align: left;
   line-height: 34px;
@@ -79,7 +79,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 34px;
+  width: 36px;
   height: 100%;
 }
 .loginBtn:focus {
@@ -90,6 +90,8 @@
   box-shadow: inset 0 0 0 32px rgba(0, 0, 0, 0.1);
 }
 .loginBtn--facebook {
+  height: 38px;
+  margin: 10px;
   background-color: #4c69ba;
   background-image: -webkit-gradient(
     linear,
@@ -135,7 +137,8 @@
   transition-duration: 150ms;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: 0;
+  padding: 3px;
+  margin: 10px;
 }
 .google-button:focus,
 .google-button:hover {
@@ -192,14 +195,14 @@
   margin-bottom: 1rem;
 }
 .text-primary {
-  color: #c760c7;
+  color: #6742a3;
 }
 .round-img {
   border-radius: 50%;
 }
 .bg-primary {
-  background-color: #c760c7;
-  color: #000;
+  background-color: #6742a3;
+  color: #fff;
 }
 .bg-light {
   background-color: #ddd7d8;
@@ -211,7 +214,7 @@
   color: #fff;
 }
 .bg-success {
-  background-color: #90eb90;
+  background-color: #73ee73;
   color: #000;
 }
 .bg-danger {
@@ -227,21 +230,21 @@
   display: inline-block;
   background: #ddd7d8;
   color: #333;
-  padding: 0.4rem 1.3rem;
+  padding: 0.4rem 2rem;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-right: 0.5rem;
   outline: none;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 .btn.btn-primary {
-  background-color: #c760c7;
-  color: #000;
+  background-color: #6742a3;
+  color: #fff;
 }
 .btn.btn-primary:hover {
-  background: #d486d4;
+  background: #805bbd;
 }
 .btn.btn-dark {
   background-color: #5f5d5d;
@@ -251,11 +254,13 @@
   background: #797676;
 }
 .btn.btn-success {
-  background-color: #90eb90;
+  background-color: #73ee73;
   color: #000;
 }
 .btn.btn-success:hover {
-  background: #bbf3bb;
+  background: #a0f4a0;
+  color: #1f3a0a;
+  border: solid 5px #fff;
 }
 .btn.btn-danger {
   background-color: #f13737;
@@ -276,15 +281,15 @@
   color: #333;
 }
 .alert.alert-primary {
-  background-color: #c760c7;
-  color: #000;
+  background-color: #6742a3;
+  color: #fff;
 }
 .alert.alert-dark {
   background-color: #5f5d5d;
   color: #fff;
 }
 .alert.alert-success {
-  background-color: #90eb90;
+  background-color: #73ee73;
   color: #000;
 }
 .alert.alert-danger {
@@ -335,14 +340,14 @@
 }
 body {
   font-family: "Kreon", sans-serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   background: #fff;
-  color: #333;
+  color: #000;
 }
 a {
   text-decoration: none;
-  color: #c760c7;
+  color: #6742a3;
 }
 ul {
   list-style: none;
@@ -365,8 +370,8 @@ img {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px #c760c7;
-  opacity: 0.9;
+  background: #343435;
+  opacity: 0.8;
 }
 .navbar ul {
   display: -webkit-box;
@@ -379,7 +384,7 @@ img {
   margin: 0 0.25rem;
 }
 .navbar a:hover {
-  color: #c760c7;
+  color: #cbabf6;
 }
 .navbar-logo {
   width: 150px;
@@ -415,6 +420,7 @@ img {
 }
 .post-form-header {
   padding: 0.5rem;
+  border: solid 2px #6742a3;
 }
 .post {
   display: -ms-grid;
@@ -431,6 +437,49 @@ img {
 }
 .post img {
   width: 100px;
+}
+.resources {
+  padding: 2rem 0 0 0;
+  font-size: 25px;
+}
+.resources a {
+  padding: 3rem;
+}
+.footer {
+  background: #8e8c92;
+  position: absolute;
+  width: 100%;
+}
+.footer a {
+  color: #fff;
+}
+.footer a:hover {
+  color: #cbabf6;
+}
+.footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.footer ul li {
+  margin-right: 2rem;
+  font-size: 1.3rem;
+}
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10rem;
+}
+.about img {
+  height: 50%;
+  width: 50%;
+  opacity: 0.9;
+  border-radius: 50%;
+  padding: 2rem;
 }
 @media (max-width: 700px) {
   .hide-sm {
@@ -478,5 +527,24 @@ img {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
+  }
+  .about {
+    display: inline-block;
+  }
+  .about img {
+    height: 50vh;
+    width: 50vh;
+  }
+  .resources {
+    margin: 0;
+  }
+  .resources ul {
+    font-size: 1.5rem;
+  }
+  .resources ul li {
+    margin: 10px;
+  }
+  .resources ul li a {
+    padding: 0;
   }
 }
