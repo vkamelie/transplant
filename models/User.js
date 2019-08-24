@@ -2,17 +2,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: {
-    type: String
+  method: {
+    type: String,
+    enum: ["google", "facebook"],
+    required: true
   },
-  googleId: {
-    type: String
+  google: {
+    name: {
+      type: String
+    },
+    avatar: {
+      type: String
+    },
+    id: {
+      type: String
+    }
   },
-  avatar: {
-    type: String
-  },
-  facebookId: {
-    type: String
+  facebook: {
+    name: {
+      type: String
+    },
+
+    avatar: {
+      type: String
+    },
+    id: {
+      type: String
+    }
   }
 });
 

@@ -5,22 +5,27 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App" />
-      <Navbar />
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="App" />
+        <Navbar />
 
-      <Fragment>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route component={Routes} />
-        </Switch>
-        <Footer />
-      </Fragment>
-    </BrowserRouter>
+        <Fragment>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route component={Routes} />
+          </Switch>
+          <Footer />
+        </Fragment>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

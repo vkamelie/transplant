@@ -6,30 +6,23 @@ const profileRoutes = require("./routes/api/profile");
 const cookieSession = require("cookie-session");
 const dotenv = require("dotenv");
 const passport = require("passport");
+const cors = require("cors");
+const restify = require("restify");
 
 dotenv.config();
 
 connectDB();
 const app = express();
+app.use(cors());
 app.use(express.json({ extended: false }));
-
-app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: [process.env.COOKIE_KEY]
-  })
-);
-
-//initialize passport
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.get("/", (req, res) => res.send("api running"));
 
 //Define Routes
 app.use("/api/auth", authRoutes);
-app.use("/api", profileRoutes);
-app.use("/api/posts", require("./routes/api/posts"));
+// app.use("/api", profileRoutes);
+// app.use("/api/posts", require("./routes/api/posts"));
 
 const PORT = process.env.PORT || 5000;
 

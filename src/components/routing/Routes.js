@@ -5,6 +5,7 @@ import Posts from "../posts/Posts";
 import Resources from "../layout/Resources";
 import Contact from "../layout/Contact";
 import About from "../layout/About";
+import Profile from "../layout/profile";
 
 const Routes = () => {
   return (
@@ -15,6 +16,7 @@ const Routes = () => {
         <Route exact path="/resources" component={Resources} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
     </section>
   );
