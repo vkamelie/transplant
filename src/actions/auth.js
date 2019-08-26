@@ -3,28 +3,36 @@ import axios from "axios";
 
 import { AUTH_SIGN_UP } from "./types";
 
-export const oauthGoogle = data => {
+export const authGoogle = data => {
   return async dispatch => {
-    console.log("we received data", data);
-    const res = await axios("http://localhost:5000/api/auth/google");
-    dispatch({
-      type: AUTH_SIGN_UP,
-      payload: res.data.token
-    });
-    console.log(res);
-    localStorage.setItem("JWT_TOKEN", res.data.token);
-  };
-};
-
-export const oauthFacebook = data => {
-  return async dispatch => {
-    const res = await axios.get("http://localhost:5000/api/auth/facebook", {
+    console.log("we received", data);
+    const res = await axios.post("http://localhost:5000/api/auth/google", {
       access_token: data
     });
 
     dispatch({
-      type: AUTH_SIGN_UP
+      type: AUTH_SIGN_UP,
+      payload: res.data.token
     });
-    console.log(res, "facebook res");
+
+    console.log("res", res);
+    localStorage.setItem("JWT_TOKEN", res.data.token);
+  };
+};
+
+export const authFacebook = data => {
+  return async dispatch => {
+    console.log("we received", data);
+    const res = await axios.post("http://localhost:5000/api/auth/facebook", {
+      access_token: data
+    });
+
+    dispatch({
+      type: AUTH_SIGN_UP,
+      payload: res.data.token
+    });
+
+    console.log("res", res);
+    localStorage.setItem("JWT_TOKEN", res.data.token);
   };
 };

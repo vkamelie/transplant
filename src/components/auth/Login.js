@@ -4,26 +4,28 @@ import FacebookLogin from "react-facebook-login";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import { oauthGoogle, oauthFacebook } from "../../actions/auth";
+import { authGoogle, authFacebook } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const Login = ({ oauthGoogle, isAuthenticated }) => {
+// const Login = ({ oauthGoogle, isAuthenticated }) => {
+const Login = ({ authGoogle, authFacebook, isAuthenticated }) => {
   const responseGoogle = async res => {
-    console.log(res, "Google res");
-    await oauthGoogle(res.accessToken);
-    if (isAuthenticated) {
-      return <Redirect to="/profile" />;
-    }
+    console.log("Google res", res);
+    await authGoogle(res.accessToken);
+
+    // if (isAuthenticated) {
+    //   return <Redirect to="/profile" />;
+    // }
   };
 
   const responseFacebook = async res => {
-    console.log(res, "Facebook res");
-    await oauthFacebook(res.accessToken);
-    if (isAuthenticated) {
-      return <Redirect to="/profile" />;
-    }
+    console.log("Facebook res", res);
+    await authFacebook(res.accessToken);
   };
 
+  if (isAuthenticated) {
+    return <Redirect to="/profile" />;
+  }
   return (
     <section className="container">
       <h1 className="large text-primary">Login</h1>
@@ -35,7 +37,7 @@ const Login = ({ oauthGoogle, isAuthenticated }) => {
         textButton="Facebook"
         fields="first_name, picture"
         callback={responseFacebook}
-        cssClass="loginBtn--facebook"
+        // cssClass="btn"
       />
 
       <GoogleLogin
@@ -43,14 +45,15 @@ const Login = ({ oauthGoogle, isAuthenticated }) => {
         buttonText="Login with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
+        // className="btn"
       />
     </section>
   );
 };
 Login.propTypes = {
   isAuthenticated: PropTypes.bool,
-  oauthGoogle: PropTypes.func.isRequired,
-  oauthFacebook: PropTypes.func.isRequired
+  authGoogle: PropTypes.func.isRequired,
+  authFacebook: PropTypes.func.isRequired
 };
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
@@ -58,5 +61,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { oauthGoogle, oauthFacebook }
+  { authGoogle, authFacebook }
 )(Login);

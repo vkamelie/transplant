@@ -3,17 +3,18 @@ const connectDB = require("./db");
 const passportSetup = require("./passport-setup");
 const authRoutes = require("./routes/api/auth");
 const profileRoutes = require("./routes/api/profile");
-const cookieSession = require("cookie-session");
+
 const dotenv = require("dotenv");
 const passport = require("passport");
 const cors = require("cors");
-const restify = require("restify");
 
 dotenv.config();
 
 connectDB();
 const app = express();
+
 app.use(cors());
+
 app.use(express.json({ extended: false }));
 app.use(passport.initialize());
 
