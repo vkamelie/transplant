@@ -36,3 +36,15 @@ export const authFacebook = data => {
     localStorage.setItem("JWT_TOKEN", res.data.token);
   };
 };
+
+export const getSecret = () => {
+  return async dispatch => {
+    try {
+      console.log("[ACtion creator] Trying to get backend");
+      const res = await axios.get("http://localhost:5000/api/auth/secret");
+      console.log("res", res);
+    } catch (err) {
+      console.error("err", err);
+    }
+  };
+};

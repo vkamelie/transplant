@@ -36,6 +36,3 @@ module.exports = {
     res.json({ secret: "resources" });
   }
 };
-
-//generate the token
-//  const token = signToken(newUser)

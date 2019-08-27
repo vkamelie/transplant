@@ -6,7 +6,7 @@ import Resources from "../layout/Resources";
 import Contact from "../layout/Contact";
 import About from "../layout/About";
 import Profile from "../layout/profile";
-
+// import authGuard from "../HOCs/authGuard";
 const Routes = () => {
   return (
     <section>

@@ -54,10 +54,10 @@ passport.use(
         const newUser = await User({
           method: "google",
           google: {
-            id: profile.id,
-            name: profile.name.givenName,
-            avatar: profile.photos[0].value
-          }
+            id: profile.id
+          },
+          name: profile.name.givenName,
+          avatar: profile.photos[0].value
         });
         await newUser.save();
         done(null, newUser);
@@ -86,10 +86,10 @@ passport.use(
         const newUser = new User({
           method: "facebook",
           facebook: {
-            id: profile.id,
-            name: profile.name.givenName,
-            avatar: profile.photos[0].value
-          }
+            id: profile.id
+          },
+          name: profile.name.givenName,
+          avatar: profile.photos[0].value
         });
 
         await newUser.save();

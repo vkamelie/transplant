@@ -1,19 +1,32 @@
-// const express = require("express");
-// const router = express.Router();
+const express = require("express");
+const router = express.Router();
+const User = require("../../../models/User");
 
-// const authCheck = (req, res, next) => {
-//   if (!req.user) {
-//     //if user is not logged in
-//     res.redirect("/auth/login");
-//   } else {
-//     //if logged in
-//     next();
-//   }
-// };
+const passport = require("passport");
+const passportConf = require("../../passport-setup");
 
-// router.get("/profile", authCheck, (req, res) => {
-//   // res.render("profile", { user: req.user });
-//   res.send(req.user.name);
-// });
+const passportJWT = passport.authenticate("jwt", { session: false });
 
-// module.exports = router;
+///@route current users profile api/user/profile/me
+//@access private
+router.get("/profile/me", passportJWT, async (req, res) => {
+  try {
+    const profile = await User.findById(req.user.id);
+    console.log(profile);
+    return res.json(profile.name);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.get("/profile/me/:user_id", passportJWT, async (req, res) => {
+  try {
+    const posts = await Post.find({ user: req.user.id });
+    return res.json(posts);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+module.exports = router;

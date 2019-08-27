@@ -8,27 +8,20 @@ const UserSchema = new Schema({
     required: true
   },
   google: {
-    name: {
-      type: String
-    },
-    avatar: {
-      type: String
-    },
     id: {
       type: String
     }
   },
   facebook: {
-    name: {
-      type: String
-    },
-
-    avatar: {
-      type: String
-    },
     id: {
       type: String
     }
+  },
+  avatar: {
+    type: String
+  },
+  name: {
+    type: String
   }
 });
 

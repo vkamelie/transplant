@@ -3,6 +3,7 @@ const connectDB = require("./db");
 const passportSetup = require("./passport-setup");
 const authRoutes = require("./routes/api/auth");
 const profileRoutes = require("./routes/api/profile");
+const postsRoutes = require("./routes/api/posts");
 
 const dotenv = require("dotenv");
 const passport = require("passport");
@@ -22,8 +23,8 @@ app.get("/", (req, res) => res.send("api running"));
 
 //Define Routes
 app.use("/api/auth", authRoutes);
-// app.use("/api", profileRoutes);
-// app.use("/api/posts", require("./routes/api/posts"));
+app.use("/api/user", profileRoutes);
+app.use("/api/posts", postsRoutes);
 
 const PORT = process.env.PORT || 5000;
 
