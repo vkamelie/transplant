@@ -1,7 +1,25 @@
 import axios from "axios";
 //actions
 
-import { AUTH_SIGN_UP } from "./types";
+import { AUTH_SIGN_UP, LOGOUT, USER_LOADED } from "./types";
+
+import setAuthToken from "../utils/setAuthToken";
+
+export const loadUser = () => async dispatch => {
+  if (localStorage.JWT_TOKEN) {
+    setAuthToken(localStorage.JWT_TOKEN);
+  }
+  try {
+    const res = await axios.get("http://localhost:5000/api/user/profile/me");
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data
+    });
+    console.log(res.data, "USER LOADED");
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 export const authGoogle = data => {
   return async dispatch => {
@@ -47,4 +65,9 @@ export const getSecret = () => {
       console.error("err", err);
     }
   };
+};
+
+//LOGOUT
+export const logout = () => dispatch => {
+  dispatch({ type: LOGOUT });
 };

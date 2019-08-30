@@ -4,6 +4,7 @@ import Routes from "./components/routing/Routes";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
+import Alert from "./components/layout/Alert";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
 
       <Fragment>
+        <Alert />
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route component={Routes} />

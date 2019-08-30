@@ -6,6 +6,7 @@ import Resources from "../layout/Resources";
 import Contact from "../layout/Contact";
 import About from "../layout/About";
 import Profile from "../layout/profile";
+import Landing from "../layout/Landing";
 // import authGuard from "../HOCs/authGuard";
 const Routes = () => {
   return (
@@ -17,6 +18,7 @@ const Routes = () => {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
         <Route exact path="/profile" component={Profile} />
+        <Route excat path="/" component={Landing} />
       </Switch>
     </section>
   );
