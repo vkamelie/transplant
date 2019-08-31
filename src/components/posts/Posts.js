@@ -32,11 +32,11 @@ const Posts = () => {
         </div>
       </div>
 
-      <div class="posts">
-        <div class="post bg-white my-1 p-1">
+      <div className="posts">
+        <div className="post bg-white my-1 p-1">
           <div>
             <img
-              class="round-img"
+              className="round-img"
               src="https://us.123rf.com/450wm/photollurg/photollurg1803/photollurg180300027/97512047-cute-pitbull-dog.jpg?ver=6"
               alt="avatar"
             />
@@ -44,15 +44,15 @@ const Posts = () => {
           </div>
 
           <div>
-            <p class="my-1">This Is where people were put their posts</p>
-            <button class="btn">
-              <i class="fas fa-thumbs-up" />
+            <p className="my-1">This Is where people were put their posts</p>
+            <button className="btn">
+              <i className="fas fa-thumbs-up" />
               <span>5</span>
             </button>
-            <button class="btn">
-              <i class="fas fa-thumbs-down" />
+            <button className="btn">
+              <i className="fas fa-thumbs-down" />
             </button>
-            <a href="post.html" class="btn btn-primary">
+            <a href="post.html" className="btn btn-primary">
               Discussion
             </a>
           </div>

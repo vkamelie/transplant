@@ -13,7 +13,7 @@ router.get("/profile/me", passportJWT, async (req, res) => {
   try {
     const profile = await User.findById(req.user.id);
     console.log(profile);
-    return res.json(profile.name);
+    return res.json(profile);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

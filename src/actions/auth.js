@@ -1,32 +1,36 @@
 import axios from "axios";
 //actions
 
-import { AUTH_SIGN_UP, LOGOUT, USER_LOADED } from "./types";
+import { AUTH_SIGN_UP, LOGOUT } from "./types";
 
-import setAuthToken from "../utils/setAuthToken";
+//import setAuthToken from "../utils/setAuthToken";
 
-export const loadUser = () => async dispatch => {
-  if (localStorage.JWT_TOKEN) {
-    setAuthToken(localStorage.JWT_TOKEN);
-  }
-  try {
-    const res = await axios.get("http://localhost:5000/api/user/profile/me");
-    dispatch({
-      type: USER_LOADED,
-      payload: res.data
-    });
-    console.log(res.data, "USER LOADED");
-  } catch (err) {
-    console.error(err);
-  }
-};
+// export const loadUser = () => async dispatch => {
+//   if (localStorage.JWT_TOKEN) {
+//     setAuthToken(localStorage.JWT_TOKEN);
+//   }
+//   try {
+//     const res = await axios.get("http://localhost:5000/api/user/profile/me");
+//     dispatch({
+//       type: USER_LOADED,
+//       payload: res.data
+//     });
+//     console.log(res.data, "USER LOADED");
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
 export const authGoogle = data => {
   return async dispatch => {
     console.log("we received", data);
-    const res = await axios.post("http://localhost:5000/api/auth/google", {
-      access_token: data
-    });
+    const res = await axios.post(
+      "http://localhost:5000/api/auth/google",
+
+      {
+        access_token: data
+      }
+    );
 
     dispatch({
       type: AUTH_SIGN_UP,
